@@ -20,6 +20,8 @@ class PengajuanController extends Controller
         //     'pengajuan' => DB::table('pengajuan')->get(),
         // ];
 
+
+        
         $pengajuan = Pengajuan::with('siswa', 'pembimbing',)->get();
        
      
