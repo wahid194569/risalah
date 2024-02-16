@@ -25,6 +25,6 @@ class Pengajuan extends Model
     }
     public function pembimbing2()
     {
-        return $this->belongsTo(Tutor::class, 'id_pembimbing_b');
+        return $this->belongsTo(Tutor2::class, 'id_pembimbing_b');
     }
 }

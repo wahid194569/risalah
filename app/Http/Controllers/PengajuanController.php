@@ -23,8 +23,8 @@ class PengajuanController extends Controller
 
 
         $pengajuan = Pengajuan::with(['siswa', 'pembimbing', 'pembimbing2'])->get();
-        dd($pengajuan);
-        // dd($pengajuan);
+
+
         // $pengajuan = Pengajuan::with('pembimbing')->get();
         // dd($pengajuan);
         return view('pengajuan.index', compact('pengajuan'));
