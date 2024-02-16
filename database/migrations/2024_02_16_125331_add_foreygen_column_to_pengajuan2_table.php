@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswa', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('kelas');
+        Schema::table('pengajuan', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_pembimbing_b');
+            // $table->unsignedBigInteger('id_pembimbing_b');
+            $table->foreign('id_pembimbing_b')->references('id')->on('pembimbing2');
         });
     }
 
@@ -23,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswa');
+        Schema::table('pengajuan2', function (Blueprint $table) {
+            //
+        });
     }
 };
