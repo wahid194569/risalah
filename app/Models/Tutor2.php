@@ -14,6 +14,6 @@ class Tutor extends Model
 
     public function pengajuan()
     {
-        return $this->hasMany(Pengajuan::class, 'id_pembimbing_a');
+        return $this->hasMany(Pengajuan::class, 'id_pembimbing_b');
     }
 }

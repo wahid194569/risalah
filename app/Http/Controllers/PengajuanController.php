@@ -21,10 +21,10 @@ class PengajuanController extends Controller
         // ];
 
 
-        
-        $pengajuan = Pengajuan::with('siswa', 'pembimbing',)->get();
-       
-     
+
+        $pengajuan = Pengajuan::with(['siswa', 'pembimbing', 'pembimbing2'])->get();
+        dd($pengajuan);
+        // dd($pengajuan);
         // $pengajuan = Pengajuan::with('pembimbing')->get();
         // dd($pengajuan);
         return view('pengajuan.index', compact('pengajuan'));
@@ -34,25 +34,28 @@ class PengajuanController extends Controller
     public function create(Request $request)
     {
         // dd($request->judul);
-        $validatedData = $request->validate([            
-            'id_siswa' => 'required',            
-            'judul' => 'required',                   
+        $validatedData = $request->validate([
+            'id_siswa' => 'required',
+            'judul' => 'required',
+            'pembimbing' => 'required',
+            'pembimbing2' => 'required',
         ]);
-        foreach ($request->judul as $value) {     
-             $validatedData['judul'] = $value;                               
-           DB::table('pengajuan')->insert($validatedData);
-        }    
-        
+        foreach ($request->judul as $value) {
+            $validatedData['judul'] = $value;
+            DB::table('pengajuan')->insert($validatedData);
+        }
+
         return redirect('/pengajuan'); // setiap redirect akan diarahkan ke route yang ada di web.php
     }
 
     public function form($id = null)
-    {        
-        
-        if ($id == null){
+    {
+
+        if ($id == null) {
+
             $pembimbing = Tutor::get();
             $siswa = Student::get();
-            return view('pengajuan.form' , compact('pembimbing', 'siswa'));
+            return view('pengajuan.form', compact('pembimbing', 'siswa'));
         }
 
         // edit
@@ -66,26 +69,25 @@ class PengajuanController extends Controller
             return view('pengajuan.edit', ['edit' => $edit]);
         } else {
             return redirect('/pengajuan');
-        }    
+        }
     }
-    
+
     // $request for getting data from form, $id for getting data from url
     function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'id_siswa' => 'required',            
-            'judul' => 'required',         
-        ]);        
+            'id_siswa' => 'required',
+            'judul' => 'required',
+        ]);
 
         DB::table('pengajuan')->where('id', $id)->update($validatedData);
-        
+
         return redirect('/pengajuan');
     }
-    
+
     public function delete($id)
     {
         DB::table('pengajuan')->where('id_siswa', $id)->delete();
         return redirect('/pengajuan');
     }
-
 }

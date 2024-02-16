@@ -23,4 +23,8 @@ class Pengajuan extends Model
     {
         return $this->belongsTo(Tutor::class, 'id_pembimbing_a');
     }
+    public function pembimbing2()
+    {
+        return $this->belongsTo(Tutor::class, 'id_pembimbing_b');
+    }
 }

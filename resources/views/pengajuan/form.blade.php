@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Form</title>
     </title>
 </head>
+
 <body>
 
     <h1>WELCOME TO FORM Pengajuan Judul</h1>
@@ -28,10 +30,21 @@
             <option value="{{$p->id}}">{{$p->nama}}</option>
             @endforeach
         </select> --}}
-        <input type="text" name="id_siswa" placeholder="Nama">
+        {{-- @dd($siswa) --}}
+        {{-- <input type="text" name="id_siswa" placeholder="Nama"> --}}
+        <select name="id_siswa">
+            @foreach ($siswa as $item)
+                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+            @endforeach
+        </select>
         <input type="text" name="judul[]" placeholder="Judul">
         <input type="text" name="judul[]" placeholder="Judul">
         <input type="text" name="judul[]" placeholder="Judul">
+        <select name="id_pembimbing">
+            @foreach ($siswa as $item)
+                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+            @endforeach
+        </select>
         {{-- <input type="text" name="judul_b" placeholder="Judul">
         <input type="text" name="judul_c" placeholder="Judul"> --}}
         {{-- <input type="text" name="keterangan" placeholder="Keterangan"> --}}
@@ -39,4 +52,5 @@
     </form>
 
 </body>
+
 </html>
