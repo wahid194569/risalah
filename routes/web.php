@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 // Read, Create
 Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/form', [StudentController::class, 'form']);
