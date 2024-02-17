@@ -37,15 +37,30 @@ class PengajuanController extends Controller
         $validatedData = $request->validate([
             'id_siswa' => 'required',
             'judul' => 'required',
-            'pembimbing' => 'required',
-            'pembimbing2' => 'required',
+            'id_pembimbing' => 'required',
+            // 'pembimbing2' => 'required',
         ]);
+        // dd($validatedData);
+
+            
         foreach ($request->judul as $value) {
-            $validatedData['judul'] = $value;
-            DB::table('pengajuan')->insert($validatedData);
+            // $pengajuan = new Pengajuan;
+            //         $pengajuan->id_siswa = $request->id_siswa;
+            //         $pengajuan->judul = $value;
+            //         $pengajuan->id_pembimbing_a = $request->id_pembimbing;
+            //         // print_r($pengajuan->judul);
+            // $pengajuan->save();
+            
+
+        $data =[
+            'id_siswa' => $request->id_siswa,
+            'judul' => $value,
+            'id_pembimbing_a' => $request->id_pembimbing];
+            
+            DB::table('pengajuan')->insert($data);
         }
 
-        return redirect('/pengajuan'); // setiap redirect akan diarahkan ke route yang ada di web.php
+        // return redirect('/pengajuan'); // setiap redirect akan diarahkan ke route yang ada di web.php
     }
 
     public function form($id = null)
@@ -56,6 +71,7 @@ class PengajuanController extends Controller
             $pembimbing = Tutor::get();
             $siswa = Student::get();
             return view('pengajuan.form', compact('pembimbing', 'siswa'));
+            // dd($siswa);
         }
 
         // edit

@@ -39,7 +39,7 @@ Route::post('/admin/form', [AdminController::class, 'create']);
 Route::get('/pengajuan', [PengajuanController::class, 'index']);
 Route::get('/pengajuan/form', [PengajuanController::class, 'form']);
 Route::post('/pengajuan/form', [PengajuanController::class, 'create']);
-Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+// Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
 
 // Update
 Route::get('/student/edit/{id}', [StudentController::class, 'form']); // take data from database
