@@ -21,6 +21,11 @@ class Student extends Model
         return $this->hasMany(Pengajuan::class, 'id_siswa');
     }
 
+    public function penerimaan()
+    {
+        return $this->hasMany(Penerimaan::class, 'id_siswa');
+    }
+
     // Lagi mnecari solusi untuk menampilkan data 'pengajuan' dari model 'Student' ke view 'student.index'
     // kalau ada yang tau silahkan komentar di video ini
 
