@@ -40,7 +40,8 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/form', [AdminController::class, 'form']);
 Route::post('/admin/form', [AdminController::class, 'create']);
 // =================== Pengajuan
-Route::get('/pengajuan', [PengajuanController::class, 'index']);
+// Route::get('/pengajuan', [PengajuanController::class, 'index']);
+Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 Route::get('/pengajuan/form', [PengajuanController::class, 'form']);
 Route::post('/pengajuan/form', [PengajuanController::class, 'create']);
 // Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);

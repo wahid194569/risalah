@@ -1,8 +1,18 @@
 /********** Template CSS **********/
 :root {
-    --primary: #009cff;
+    /* --primary: #009cff;
     --light: #f3f6f9;
-    --dark: #191c24;
+    --dark: #191c24; */
+    /* 
+    --primary: #40a2e3; /* Blue */
+    /* --light: #fff6e9; /* Cream */
+    /* --dark: #0d9276; Dark Cyan */
+    /* --accent: #bbe2ec; Light Blue */
+
+    --primary: #12372a; /* Dark Green */
+    --light: #fbfada; /* Pale Yellow */
+    --dark: #436850; /* Forest Green */
+    --accent: #adbc9f; /* Light Grayish Green */
 }
 
 .back-to-top {
