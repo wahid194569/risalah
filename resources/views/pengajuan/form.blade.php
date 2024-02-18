@@ -1,56 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Form</title>
-    </title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>SIRI</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="keywords" />
+        <meta content="" name="description" />
 
-<body>
+        {{-- take from css.blade.php --}}
+        @include('css')
 
-    <h1>WELCOME TO FORM Pengajuan Judul</h1>
+    </head>
 
-    <form action="/pengajuan/form" method="post">
-        @csrf
-        {{-- <input type="text" name="id_siswa" placeholder="Nama"> --}}
-        {{-- <input type="text" name="id_pembimbing_a" placeholder="Pembimbing"> --}}
-        {{-- <input type="text" name="id_pembimbing_b" placeholder="Pembimbing"> --}}
-        {{-- <select name="id_pembimbing_a" required>
-            <option disabled selected>Pembimbing 1</option>
-            @foreach ($pembimbing as $p)
-            <option value="{{$p->id}}">{{$p->nama}}</option>
-        @endforeach
-        </select>
-        <select name="id_pembimbing_b" required>
-            <option disabled selected>Pembimbing 2</option>
-            @foreach ($pembimbing as $p)
-            <option value="{{$p->id}}">{{$p->nama}}</option>
-            @endforeach
-        </select> --}}
-        {{-- @dd($siswa) --}}
-        {{-- <input type="text" name="id_siswa" placeholder="Nama"> --}}
-        <select name="id_siswa">
-            @foreach ($siswa as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-            @endforeach
-        </select>
-        <input type="text" name="judul[]" placeholder="Judul">
-        <input type="text" name="judul[]" placeholder="Judul">
-        <input type="text" name="judul[]" placeholder="Judul">
-        <select name="id_pembimbing">
-            @foreach ($siswa as $item)
-            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-            @endforeach
-        </select>
-        {{-- <input type="text" name="judul_b" placeholder="Judul">
-        <input type="text" name="judul_c" placeholder="Judul"> --}}
-        {{-- <input type="text" name="keterangan" placeholder="Keterangan"> --}}
-        <button type="submit">Submit</button>
-    </form>
+    <body>
+        {{-- <h1>WELCOME TO SIRI - Pengajuan Section</h1> --}}
+        <div class="container-xxl position-relative bg-white d-flex p-0">
+            <!-- Spinner Start -->
+            <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <!-- Spinner End -->
 
-</body>
+            {{-- sidebar Start --}}
+            @include('sidebar')
+            {{-- sidebar End --}}
+            <div class="content">
+                {{-- navbar Start --}}
+                @include('navbar')
 
-</html>
+                <div class="container-fluid pt-4 px-4">
+                    <h1 style="color: #0D9276">WELCOME TO SIRI - Pengajuan Section</h1>
+
+
+                </div>
+
+                {{-- navbar End --}}
+                <div class="container-fluid pt-4 px-4">
+                    <div class="bg-light text-center rounded p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <a href="">Show All</a>
+                        </div>
+                        <h1>WELCOME TO FORM Pengajuan Judul</h1>
+
+                        <form action="/pengajuan/form" method="post">
+                            @csrf
+                            <select name="id_siswa">
+                                @foreach ($siswa as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" name="judul[]" placeholder="Judul">
+                            <input type="text" name="judul[]" placeholder="Judul">
+                            <input type="text" name="judul[]" placeholder="Judul">
+                            <select name="id_pembimbing">
+                                @foreach ($siswa as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+                @include('footer')
+            </div>
+        </div>
+        @include('javascript')
+    </body>
+    </html>
