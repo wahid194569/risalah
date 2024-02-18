@@ -44,7 +44,7 @@ Route::post('/admin/form', [AdminController::class, 'create']);
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 // Route::get('/pengajuan/form', [PengajuanController::class, 'form']);
 Route::get('/pengajuan/form', [PengajuanController::class, 'form'])->name('pengajuan.form');
-Route::post('/pengajuan/form', [PengajuanController::class, 'create']);
+Route::post('/pengajuan/form', [PengajuanController::class, 'create'])->name('pengajuan.create');
 // Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
 
 // Update

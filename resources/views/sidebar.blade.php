@@ -2,11 +2,13 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-light navbar-light">
         <a href="/" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><i class="fa fa-envelope me-2"></i>SIRI</h3>
+            <h3 style="color: #0D9276"><i class="fa fa-envelope me-2" style="color: #0D9276"></i>SIRI</h3>
+
+
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
-                <img class="rounded-circle" src="{{ asset('img/user.jpg')}}" alt="" style="width: 40px; height: 40px;">
+                <img class="rounded-circle" src="{{ asset('img/user.jpg')}}" alt="" style="width: 40px; height: 40px; color: #0D9276">
                 <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
             </div>
             <div class="ms-3">

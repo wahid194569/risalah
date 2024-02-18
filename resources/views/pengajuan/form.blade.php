@@ -32,36 +32,71 @@
                 @include('navbar')
 
                 <div class="container-fluid pt-4 px-4">
-                    <h1 style="color: #0D9276">WELCOME TO SIRI - Pengajuan Section</h1>
+                    <h1 style="color: #0D9276">Welcome to Pengajuan Judul</h1>
 
 
                 </div>
 
                 {{-- navbar End --}}
-                <div class="container-fluid pt-4 px-4">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <a href="">Show All</a>
-                        </div>
-                        <h1>WELCOME TO FORM Pengajuan Judul</h1>
+                <div class="container-fluid pt-4 px-4" style="color: #0D9276">
+                    <div class="bg-light text-justify rounded p-4">
+                        <form method="POST" action="{{ route('pengajuan.form') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="InputNama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="InputNama" aria-describedby="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputJudul1" class="form-label">Judul 1</label>
+                                <input type="text" class="form-control" id="InputJudul1" aria-describedby="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputJudul2" class="form-label">Judul 2</label>
+                                <input type="text" class="form-control" id="InputJudul2" aria-describedby="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputJudul3" class="form-label">Judul 3</label>
+                                <input type="text" class="form-control" id="InputJudul3" aria-describedby="nama">
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Pembimbing">
+                                    <option selected>Silahkan Dipilih</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="PilihPembimbing1">Pembimbing 1</label>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Pembimbing">
+                                    <option selected>Silahkan Dipilih</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <label for="PilihPembimbing2">Pembimbing 2</label>
+                            </div>
 
-                        <form action="/pengajuan/form" method="post">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        </form>
+
+                        {{-- <form action="/pengajuan/form" method="post">
                             @csrf
                             <select name="id_siswa">
                                 @foreach ($siswa as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                @endforeach
-                            </select>
-                            <input type="text" name="judul[]" placeholder="Judul">
-                            <input type="text" name="judul[]" placeholder="Judul">
-                            <input type="text" name="judul[]" placeholder="Judul">
-                            <select name="id_pembimbing">
-                                @foreach ($siswa as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                @endforeach
-                            </select>
-                            <button type="submit">Submit</button>
-                        </form>
+                        @endforeach
+                        </select>
+                        <input type="text" name="judul[]" placeholder="Judul">
+                        <input type="text" name="judul[]" placeholder="Judul">
+                        <input type="text" name="judul[]" placeholder="Judul">
+                        <select name="id_pembimbing">
+                            @foreach ($siswa as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            @endforeach
+                        </select>
+                        <button type="submit">Submit</button>
+                        </form> --}}
 
                     </div>
                 </div>
