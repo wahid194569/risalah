@@ -1,8 +1,8 @@
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-dark">
+    <nav class="navbar navbar-light">
         <a href="/" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"><i class="fa fa-envelope me-2"></i>SIRI</h3>
+            <h3 class="text-light"><i class="fa fa-envelope me-2"></i>SIRI</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -18,10 +18,13 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/" class="nav-item nav-link active"><i
+                    class="fa fa-tachometer-alt text-dark
+                me-2"></i>Dashboard</a>
             <a href="{{ route('pengajuan.form') }}" class="nav-item nav-link "><i
-                    class="fa fa fa-keyboard me-2 me-2"></i>Pengajuan Judul</a>
-            <a href="{{ route('pengajuan') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>List Judul</a>
+                    class="fa fa fa-keyboard me-2 me-2 text-dark"></i>Pengajuan Judul</a>
+            <a href="{{ route('pengajuan') }}" class="nav-item nav-link"><i class="fa fa-th me-2 text-dark"></i>List
+                Judul</a>
         </div>
     </nav>
 </div>
