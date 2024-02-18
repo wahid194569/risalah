@@ -80,24 +80,6 @@
                             <button type="submit" class="btn btn-primary">Kirim</button>
                         </form>
 
-                        {{-- <form action="/pengajuan/form" method="post">
-                            @csrf
-                            <select name="id_siswa">
-                                @foreach ($siswa as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                        @endforeach
-                        </select>
-                        <input type="text" name="judul[]" placeholder="Judul">
-                        <input type="text" name="judul[]" placeholder="Judul">
-                        <input type="text" name="judul[]" placeholder="Judul">
-                        <select name="id_pembimbing">
-                            @foreach ($siswa as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                            @endforeach
-                        </select>
-                        <button type="submit">Submit</button>
-                        </form> --}}
-
                     </div>
                 </div>
                 @include('footer')
