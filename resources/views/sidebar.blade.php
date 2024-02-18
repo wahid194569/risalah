@@ -16,7 +16,7 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a href="/" class="nav-item nav-link "><i class="fa fa fa-keyboard me-2 me-2"></i>Pengajuan Judul</a>
+            <a href="{{ route('pengajuan/form') }}" class="nav-item nav-link "><i class="fa fa fa-keyboard me-2 me-2"></i>Pengajuan Judul</a>
             <a href="{{ route('pengajuan') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>List Judul</a>
         </div>
     </nav>
