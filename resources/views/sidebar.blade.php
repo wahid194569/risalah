@@ -1,10 +1,8 @@
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-dark">
+    <nav class="navbar navbar-light">
         <a href="/" class="navbar-brand mx-4 mb-3">
-            <h3 style="color: #0D9276"><i class="fa fa-envelope me-2" style="color: #0D9276"></i>SIRI</h3>
-
-
+            <h3 class="text-primary"><i class="fa fa-envelope me-2"></i>SIRI</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
