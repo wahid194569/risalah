@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('penerimaan', function (Blueprint $table) {
-            $table->id_siswa();
-            $table->judul();            
-            $table->id_pembimbing_a();
-            $table->id_pembimbing_b();    
+            $table->id();
+            $table->unsignedBigInteger('id_siswa');
+            $table->foreign('id_siswa')->references('id')->on('siswa')->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('judul');
+            $table->string('id_pembimbing_a');
+            $table->string('id_pembimbing_b');
         });
     }
 
