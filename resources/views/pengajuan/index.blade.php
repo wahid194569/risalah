@@ -17,7 +17,8 @@
     {{-- <h1>WELCOME TO SIRI - Pengajuan Section</h1> --}}
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -39,13 +40,17 @@
 
             {{-- navbar End --}}
             <div class="container-fluid pt-4 px-4">
+                <a name="" id="" class="btn btn-primary" href="{{ route('pengajuan.create') }}"
+                    role="button"> <i class="fa fa-plus" aria-hidden="true"></i></a>
                 <div class="bg-light text-center rounded p-4">
+
                     {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                         <a href="">Show All</a>
                     </div> --}}
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Nama</th>
                                 <th>Judul</th>
                                 <th>Judul</th>
@@ -62,18 +67,7 @@
                                 <td>Doe</td>
                                 <td>jhon@email.com</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>mark@email.com</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>jacob@email.com</td>
-                            </tr>
+
                         </tbody>
                     </table>
 
@@ -87,23 +81,23 @@
                             <th>Keterangan</th>
                         </tr>
                         @foreach ($pengajuan as $p)
-                        {{-- @dd($p->siswa->nama) --}}
-                        <tr>
-                            {{-- <td>{{ $p->siswa->nama }}</td> --}}
-                            {{-- <td>{{$p->pembimbing->id_pembimbing_a}}</td> --}}
-                            {{-- <td>{{ $p->pembimbing->nama }}</td> --}}
+                            {{-- @dd($p->siswa->nama) --}}
+                            <tr>
+                                {{-- <td>{{ $p->siswa->nama }}</td> --}}
+                                {{-- <td>{{$p->pembimbing->id_pembimbing_a}}</td> --}}
+                                {{-- <td>{{ $p->pembimbing->nama }}</td> --}}
 
-                            {{-- <td>{{ $p->pembimbing2->nama }}</td> --}}
+                                {{-- <td>{{ $p->pembimbing2->nama }}</td> --}}
 
-                            {{-- <td>{{$p->pembimbing->id_pembimbing_b}}</td> --}}
+                                {{-- <td>{{$p->pembimbing->id_pembimbing_b}}</td> --}}
 
-                            {{-- <td>{{ $p->judul }}</td>
+                                {{-- <td>{{ $p->judul }}</td>
                             <td>{{ $p->keterangan }}</td> --}}
-                            {{-- <td>
+                                {{-- <td>
                                 <a href="/pengajuan/edit/{{ $p->id }}">Edit</a>
                             <a href="/pengajuan/delete/{{ $p->id }}">Delete</a>
                             </td> --}}
-                        </tr>
+                            </tr>
                         @endforeach
                     </table>
                 </div>

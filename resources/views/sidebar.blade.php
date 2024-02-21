@@ -21,7 +21,7 @@
             <a href="/" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <a href="{{ route('pengajuan') }}" class="nav-item nav-link "><i
                     class="fa fa fa-keyboard me-2 me-2"></i>Pengajuan Judul</a>
-            <a href="{{ route('pengajuan') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>List Judul</a>
+            <a href="{{ route('judul') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>List Judul</a>
         </div>
     </nav>
 </div>

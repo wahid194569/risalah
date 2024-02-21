@@ -41,11 +41,18 @@
                 {{-- navbar End --}}
                 <div class="container-fluid pt-4 px-4" style="color: #0D9276">
                     <div class="bg-light text-justify rounded p-4">
-                        <form method="POST" action="{{ route('pengajuan.form', ['id' => $pengajuan->id]) }}">
+                        <form method="POST" action="{{ route('pengajuan.store') }}">
                             @csrf
                             <div class="mb-3">
-                                <label for="InputNama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="nama" aria-describedby="nama">
+                                <label for="nama">Nama</label>
+                                <select class="form-select" aria-label="nama" name="nama">
+                                    <option selected>nama anda</option>
+                                    @foreach ($s as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    @endforeach
+
+
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="InputJudul1" class="form-label">Judul 1</label>
@@ -63,7 +70,7 @@
                                 <label for="PilihPembimbing1">Pembimbing 1</label>
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing">
                                     <option selected>Silahkan Dipilih</option>
-                                    @foreach ($pembimbing as $item)
+                                    @foreach ($p1 as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
 
@@ -74,7 +81,7 @@
                                 <label for="PilihPembimbing2">Pembimbing 2</label>
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing2">
                                     <option selected>Silahkan Dipilih</option>
-                                    @foreach ($pembimbing2 as $item)
+                                    @foreach ($p2 as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </select>

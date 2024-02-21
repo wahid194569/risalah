@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JudulController;
 use App\Http\Controllers\PengajuanController;
 
 
@@ -27,28 +28,34 @@ Route::get('/login', function () {
     return view('login');
 });
 
-// Read, Create
+// =>>> Student Controller <==//
 Route::get('/student', [StudentController::class, 'index']);
 Route::get('/student/form', [StudentController::class, 'form']);
 Route::post('/student/form', [StudentController::class, 'create']);
-// =================== Tutor
+// =>>> pembimbing Controller <==//
+
 Route::get('/tutor', [TutorController::class, 'index']);
 Route::get('/tutor/form', [TutorController::class, 'form']);
 Route::post('/tutor/form', [TutorController::class, 'create']);
-// =================== Admin
+// =>>> Admin Controller <==//
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/form', [AdminController::class, 'form']);
 Route::post('/admin/form', [AdminController::class, 'create']);
-// =================== Pengajuan
-// Route::get('/pengajuan', [PengajuanController::class, 'index']);
+// =>>> Pengajuan Controller <==//
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
-// Route::get('/pengajuan/form', [PengajuanController::class, 'form']);
 Route::get('/pengajuan/form', [PengajuanController::class, 'create'])->name('pengajuan.create');
 Route::post('/pengajuan/form', [PengajuanController::class, 'store'])->name('pengajuan.store');
 Route::get('/pengajuan/edit', [PengajuanController::class, 'edit'])->name('pengajuan.edit');
 Route::post('/pengajuan/edit', [PengajuanController::class, 'update'])->name('pengajuan.update');
-Route::post('/pengajuan/edit', [PengajuanController::class, 'delete'])->name('pengajuan.delete');
-// Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
+Route::post('/pengajuan/delete', [PengajuanController::class, 'delete'])->name('pengajuan.delete');
+// =>>>Judul Controller <==//
+Route::get('/judul', [JudulController::class, 'index'])->name('judul');
+Route::get('judul/form', [JudulController::class, 'create'])->name('judul.create');
+Route::post('judul/form', [JudulController::class, 'store'])->name('judul.store');
+Route::get('judul/edit', [JudulController::class, 'edit'])->name('judul.edit');
+Route::post('judul/edit', [JudulController::class, 'update'])->name('judul.update');
+Route::post('judul/delete', [JudulController::class, 'delete'])->name('judul.delete');
+
 
 // Update
 Route::get('/student/edit/{id}', [StudentController::class, 'form']); // take data from database

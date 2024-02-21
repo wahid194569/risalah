@@ -48,9 +48,8 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Nama</th>
-                                <th>Judul</th>
-                                <th>Judul</th>
                                 <th>Judul</th>
                                 <th>Pembimbing 1</th>
                                 <th>Pembimbing 2</th>
@@ -63,11 +62,13 @@
                                 <td>John</td>
                                 <td>Doe</td>
                                 <td>jhon@email.com</td>
+                                <td>jhon@email.com</td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
+                                <td>mark@email.com</td>
                                 <td>mark@email.com</td>
                             </tr>
                             <tr>
@@ -75,11 +76,12 @@
                                 <td>Jacob</td>
                                 <td>Thornton</td>
                                 <td>jacob@email.com</td>
+                                <td>jacob@email.com</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <table>
+                    {{-- <table>
                         <tr>
                             <th>NAMA</th>
                             <th>Pembimbing 1</th>
@@ -88,26 +90,25 @@
                             <th>Judul</th>
                             <th>Keterangan</th>
                         </tr>
-                        @foreach ($pengajuan as $p)
-                            {{-- @dd($p->siswa->nama) --}}
+
                             <tr>
-                                {{-- <td>{{ $p->siswa->nama }}</td> --}}
-                                {{-- <td>{{$p->pembimbing->id_pembimbing_a}}</td> --}}
-                                {{-- <td>{{ $p->pembimbing->nama }}</td> --}}
+                                <td>{{ $p->siswa->nama }}</td>
+                                <td>{{$p->pembimbing->id_pembimbing_a}}</td>
+                                <td>{{ $p->pembimbing->nama }}</td>
 
-                                {{-- <td>{{ $p->pembimbing2->nama }}</td> --}}
+                                <td>{{ $p->pembimbing2->nama }}</td>
 
-                                {{-- <td>{{$p->pembimbing->id_pembimbing_b}}</td> --}}
+                                <td>{{$p->pembimbing->id_pembimbing_b}}</td>
 
-                                {{-- <td>{{ $p->judul }}</td>
-                            <td>{{ $p->keterangan }}</td> --}}
-                                {{-- <td>
+                                <td>{{ $p->judul }}</td>
+                            <td>{{ $p->keterangan }}</td>
+                                <td>
                                 <a href="/pengajuan/edit/{{ $p->id }}">Edit</a>
                             <a href="/pengajuan/delete/{{ $p->id }}">Delete</a>
-                            </td> --}}
+                            </td>
                             </tr>
                         @endforeach
-                    </table>
+                    </table> --}}
                 </div>
             </div>
             @include('footer')

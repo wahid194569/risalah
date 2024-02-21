@@ -33,19 +33,38 @@ class PengajuanController extends Controller
 
     public function create()
     {
-        $pengajuan = Pengajuan::with(['siswa', 'pembimbing', 'pembimbing2'])->get();
-
-        return view('pengajuan.index', compact('pengajuan'));
+        $s = Student::all();
+        $p1 = Tutor::all();
+        $p2 = Tutor2::all();
+        return view('pengajuan.form',   compact(['s', 'p1', 'p2']));
 
         // return redirect('/pengajuan'); // setiap redirect akan diarahkan ke route yang ada di web.php
     }
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'id_siswa' => 'required'
+
+        $this->validate($request, [
+            'id_siswa' => 'required',
+            'judula' => 'required',
+            'judulb' => 'required',
+            'judulc' => 'required',
+            'pembimbing' => 'required',
+            'pembimbing2' => 'required'
         ]);
-        return route('pengajuan');
+        $pengajuan = new Pengajuan();
+        $pengajuan->id_siswa = $request->nama;
+        $pengajuan->judul_a = $request->judula;
+        $pengajuan->judul_b = $request->judulb;
+        $pengajuan->judul_c = $request->judulc;
+        $pengajuan->id_pembimbing_a = $request->pembimbing;
+        $pengajuan->id_pembimbing_b = $request->pembimbing2;
+        $pengajuan->save();
+        if ($pengajuan) {
+            return redirect()->route('pengajuan')->with(['success' => 'Data Berhasil Ditambah']);
+        } else {
+            return redirect()->route('pengajuan')->with(['error' => 'Gagal Dihapus']);
+        }
     }
 
     public function edit($id)
