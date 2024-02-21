@@ -45,8 +45,6 @@ class PengajuanController extends Controller
         $validate = $request->validate([
             'id_siswa' => 'required'
         ]);
-
-
         return route('pengajuan');
     }
 
