@@ -43,8 +43,11 @@ Route::post('/admin/form', [AdminController::class, 'create']);
 // Route::get('/pengajuan', [PengajuanController::class, 'index']);
 Route::get('/pengajuan', [PengajuanController::class, 'index'])->name('pengajuan');
 // Route::get('/pengajuan/form', [PengajuanController::class, 'form']);
-Route::get('/pengajuan/form', [PengajuanController::class, 'form'])->name('pengajuan.form');
-Route::post('/pengajuan/form', [PengajuanController::class, 'create'])->name('pengajuan.create');
+Route::get('/pengajuan/form', [PengajuanController::class, 'create'])->name('pengajuan.create');
+Route::post('/pengajuan/form', [PengajuanController::class, 'store'])->name('pengajuan.store');
+Route::get('/pengajuan/edit', [PengajuanController::class, 'edit'])->name('pengajuan.edit');
+Route::post('/pengajuan/edit', [PengajuanController::class, 'update'])->name('pengajuan.update');
+Route::post('/pengajuan/edit', [PengajuanController::class, 'delete'])->name('pengajuan.delete');
 // Route::post('/pengajuan/update/{id}', [PengajuanController::class, 'update']);
 
 // Update

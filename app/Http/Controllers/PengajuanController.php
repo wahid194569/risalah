@@ -31,65 +31,34 @@ class PengajuanController extends Controller
         // return view('pengajuan.index', $data); // titik itu seperti enter. kalau dibaca jadi masuk ke folder student cari file index didalamnya
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        // dd($request->judul);
-        $validatedData = $request->validate([
-            'id_siswa' => 'required',
-            'judul' => 'required',
-            'id_pembimbing' => 'required',
-            // 'pembimbing2' => 'required',
-        ]);
-        // dd($validatedData);
+        $pengajuan = Pengajuan::with(['siswa', 'pembimbing', 'pembimbing2'])->get();
 
-            
-        foreach ($request->judul as $value) {
-            // $pengajuan = new Pengajuan;
-            //         $pengajuan->id_siswa = $request->id_siswa;
-            //         $pengajuan->judul = $value;
-            //         $pengajuan->id_pembimbing_a = $request->id_pembimbing;
-            //         // print_r($pengajuan->judul);
-            // $pengajuan->save();
-            
-
-        $data =[
-            'id_siswa' => $request->id_siswa,
-            'judul' => $value,
-            'id_pembimbing_a' => $request->id_pembimbing];
-            
-            DB::table('pengajuan')->insert($data);
-        }
+        return view('pengajuan.index', compact('pengajuan'));
 
         // return redirect('/pengajuan'); // setiap redirect akan diarahkan ke route yang ada di web.php
     }
 
-    public function form($id = null)
+    public function store(Request $request)
     {
+        $validate = $request->validate([
+            'id_siswa' => 'required'
+        ]);
 
-        if ($id == null) {
 
-            $pembimbing = Tutor::get();
-            $siswa = Student::get();
-            return view('pengajuan.form', compact('pembimbing', 'siswa'));
-            // dd($siswa);
-        }
-
-        // edit
-        // $edit = Pengajuan::join('siswa', 'siswa.id = pengajuan.id_siswa', 'inner')->findAll(); // select * from siswa where id = $id. semua data id akan diambil setelahnya.
-        // $edit = DB::table('pengajuan')->where('id_siswa', $id)->findAll();
-        // $edit = Pengajuan::('Pengajuan')->paginate(2);
-        // Pengajuan::join(tb_siswa, tb_siswa.id_siswa = tb_pengajuan.id_siswa, inner)
-
-        $edit = Pengajuan::find($id);
-        if ($edit) {
-            return view('pengajuan.edit', ['edit' => $edit]);
-        } else {
-            return redirect('/pengajuan');
-        }
+        return route('pengajuan');
     }
 
-    // $request for getting data from form, $id for getting data from url
-    function update(Request $request, $id)
+    public function edit($id)
+    {
+
+        $pengajuan = Pengajuan::with(['pembimbing', 'pembimbing2'])->get();
+
+        return view('pengajuan.index', compact('pengajuan'));
+    }
+
+    public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
             'id_siswa' => 'required',
