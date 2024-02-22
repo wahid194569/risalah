@@ -104,4 +104,16 @@ class PengajuanController extends Controller
         DB::table('pengajuan')->where('id_siswa', $id)->delete();
         return redirect('/pengajuan');
     }
+
+    public function autocomplete(Request $request)
+    {
+        $data = [];
+
+        if ($request->filled('q')) {
+            $data = Student::select("nama", "id", "kelas")
+                ->where('nama', 'LIKE', '%' . $request->get('q') . '%')
+                ->get();
+        }
+        return response()->json($data);
+    }
 }

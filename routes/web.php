@@ -55,6 +55,7 @@ Route::post('/pengajuan/form', [PengajuanController::class, 'store'])->name('pen
 Route::get('/pengajuan/edit', [PengajuanController::class, 'edit'])->name('pengajuan.edit');
 Route::post('/pengajuan/edit', [PengajuanController::class, 'update'])->name('pengajuan.update');
 Route::post('/pengajuan/delete', [PengajuanController::class, 'delete'])->name('pengajuan.delete');
+Route::get('autocomplete', [PengajuanController::class, 'autocomplete'])->name('autocomplete');
 // =>>>Judul Controller <==//
 Route::get('/judul', [JudulController::class, 'index'])->name('judul');
 Route::get('judul/form', [JudulController::class, 'create'])->name('judul.create');

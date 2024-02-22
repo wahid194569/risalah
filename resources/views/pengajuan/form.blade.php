@@ -7,9 +7,10 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="" name="keywords" />
         <meta content="" name="description" />
-
         {{-- take from css.blade.php --}}
         @include('css')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+
 
     </head>
 
@@ -53,14 +54,8 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama">Nama</label>
-                                <select class="form-select" aria-label="nama" name="nama">
-                                    <option selected>nama anda</option>
-                                    @foreach ($s as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-
-
-                                </select>
+                                <select class="form-control" id="search" style="width:500px;"
+                                    name="nama"></select>
                             </div>
                             <div class="mb-3">
                                 <label for="InputJudul1" class="form-label">Judul 1</label>
@@ -107,6 +102,32 @@
                 @include('footer')
             </div>
         </div>
+        <script type="text/javascript">
+            var path = "{{ route('autocomplete') }}";
+
+            $("#search").select2({
+                placeholder: 'Select an user',
+                ajax: {
+                    url: path,
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function(data) {
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    text: item.namea,
+                                    id: item.id,
+                                    kelas: item.kelas
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
         @include('javascript')
     </body>
 
