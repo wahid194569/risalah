@@ -43,27 +43,39 @@ class PengajuanController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
 
-        $this->validate($request, [
-            'id_siswa' => 'required',
-            'judula' => 'required',
-            'judulb' => 'required',
-            'judulc' => 'required',
-            'pembimbing' => 'required',
-            'pembimbing2' => 'required'
+        // $request->validate([
+        //     'id_siswa' => 'required',
+        //     'judula' => 'required',
+        //     'judulb' => 'required',
+        //     'judulc' => 'required',
+        //     'pembimbing' => 'required',
+        //     'pembimbing2' => 'required'
+        // ]);
+        // $pengajuan = new Pengajuan;
+        // $pengajuan->id_siswa = $request->nama;
+        // $pengajuan->judul_a = $request->judula;
+        // $pengajuan->judul_b = $request->judulb;
+        // $pengajuan->judul_c = $request->judulc;
+        // $pengajuan->id_pembimbing_a = $request->pembimbing;
+        // $pengajuan->id_pembimbing_b = $request->pembimbing2;
+        // $pengajuan->save();
+
+        $pengajuan = Pengajuan::create([
+
+            'id_siswa' => $request->nama,
+            'judul_a' => $request->judula,
+            'judul_b' => $request->judulb,
+            'judul_c' => $request->judulc,
+            'keterangan' => $request->ket,
+            'id_pembimbing_a' => $request->pembimbing,
+            'id_pembimbing_b' => $request->pembimbing2,
         ]);
-        $pengajuan = new Pengajuan();
-        $pengajuan->id_siswa = $request->nama;
-        $pengajuan->judul_a = $request->judula;
-        $pengajuan->judul_b = $request->judulb;
-        $pengajuan->judul_c = $request->judulc;
-        $pengajuan->id_pembimbing_a = $request->pembimbing;
-        $pengajuan->id_pembimbing_b = $request->pembimbing2;
-        $pengajuan->save();
         if ($pengajuan) {
             return redirect()->route('pengajuan')->with(['success' => 'Data Berhasil Ditambah']);
         } else {
-            return redirect()->route('pengajuan')->with(['error' => 'Gagal Dihapus']);
+            return redirect()->route('pengajuan.form')->with(['error' => 'Gagal Dihapus']);
         }
     }
 

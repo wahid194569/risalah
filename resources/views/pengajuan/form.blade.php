@@ -41,6 +41,14 @@
                 {{-- navbar End --}}
                 <div class="container-fluid pt-4 px-4" style="color: #0D9276">
                     <div class="bg-light text-justify rounded p-4">
+
+
+                        @if ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('pengajuan.store') }}">
                             @csrf
                             <div class="mb-3">
@@ -65,6 +73,10 @@
                             <div class="mb-3">
                                 <label for="InputJudul3" class="form-label">Judul 3</label>
                                 <input type="text" class="form-control" name="judulc" aria-describedby="nama">
+                            </div>
+                            <div class="mb-3">
+                                <label for="InputJudul3" class="form-label">Keterangan</label>
+                                <input type="text" class="form-control" name="ket" aria-describedby="nama">
                             </div>
                             <div class="mb-3">
                                 <label for="PilihPembimbing1">Pembimbing 1</label>

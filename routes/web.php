@@ -6,7 +6,7 @@ use App\Http\Controllers\TutorController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JudulController;
 use App\Http\Controllers\PengajuanController;
-
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,13 @@ use App\Http\Controllers\PengajuanController;
 Route::get('/', function () {
     // return view('welcome');
     return view('home');
+});
+Route::get('/run', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    return "Cleared!";
 });
 
 Route::get('/login', function () {

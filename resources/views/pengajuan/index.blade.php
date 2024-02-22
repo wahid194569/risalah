@@ -40,10 +40,15 @@
 
             {{-- navbar End --}}
             <div class="container-fluid pt-4 px-4">
+
                 <a name="" id="" class="btn btn-primary" href="{{ route('pengajuan.create') }}"
                     role="button"> <i class="fa fa-plus" aria-hidden="true"></i></a>
                 <div class="bg-light text-center rounded p-4">
-
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
                     {{-- <div class="d-flex align-items-center justify-content-between mb-4">
                         <a href="">Show All</a>
                     </div> --}}
