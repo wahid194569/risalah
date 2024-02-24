@@ -18,8 +18,7 @@
         {{-- <h1>WELCOME TO SIRI - Pengajuan Section</h1> --}}
         <div class="container-xxl position-relative bg-white d-flex p-0">
             <!-- Spinner Start -->
-            <div id="spinner"
-                class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
                 <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -45,17 +44,20 @@
 
 
                         @if ($message = Session::get('error'))
-                            <div class="alert alert-danger alert-block">
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong>{{ $message }}</strong>
-                            </div>
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
                         @endif
                         <form method="POST" action="{{ route('pengajuan.store') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="nama">Nama</label>
-                                <select class="form-control" id="search" style="width:500px;"
-                                    name="nama"></select>
+                                <select class="form-control" id="search" style="width:500px;" name="nama">
+                                    @foreach ($p1 as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="InputJudul1" class="form-label">Judul 1</label>
@@ -78,7 +80,7 @@
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing">
                                     <option selected>Silahkan Dipilih</option>
                                     @foreach ($p1 as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
 
 
@@ -89,7 +91,7 @@
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing2">
                                     <option selected>Silahkan Dipilih</option>
                                     @foreach ($p2 as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -106,25 +108,26 @@
             var path = "{{ route('autocomplete') }}";
 
             $("#search").select2({
-                placeholder: 'Select an user',
-                ajax: {
-                    url: path,
-                    dataType: 'json',
-                    delay: 250,
-                    processResults: function(data) {
+                placeholder: 'Select an user'
+                , ajax: {
+                    url: path
+                    , dataType: 'json'
+                    , delay: 250
+                    , processResults: function(data) {
                         return {
                             results: $.map(data, function(item) {
                                 return {
-                                    text: item.namea,
-                                    id: item.id,
-                                    kelas: item.kelas
+                                    text: item.namea
+                                    , id: item.id
+                                    , kelas: item.kelas
                                 }
                             })
                         };
-                    },
-                    cache: true
+                    }
+                    , cache: true
                 }
             });
+
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>

@@ -19,7 +19,12 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                 <a href="/" class="dropdown-item">My Profile</a>
-                <a href="#" class="dropdown-item">Log Out</a>
+                <!-- Logout Form -->
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Log Out</button>
+                </form>
+                <!-- End Logout Form -->
             </div>
         </div>
     </div>

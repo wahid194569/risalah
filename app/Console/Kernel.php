@@ -24,4 +24,10 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    protected $commands = [
+    // Other commands...
+    \App\Console\Commands\RehashPasswords::class,
+    ];
+
 }
