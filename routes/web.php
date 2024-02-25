@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JudulController;
 use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -85,14 +86,16 @@ Route::get('/student/delete/{id}', [StudentController::class, 'delete']); // tru
 // Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // Login
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Route::post('/login', 'AuthController@login')->name('login');
 // Route::post('/', [AuthController::class, 'login']);
-Route::post('/', [AuthController::class, 'login'])->name('login');
 
 // Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::post('/', [AuthController::class, 'logout'])->name('logout');
-Route::post('/', [AuthController::class, 'logout'])->name('login');
 
+// Submit
+Route::post('/submit-form', [FormController::class, 'submit'])->name('submit.form');
 
 
 
