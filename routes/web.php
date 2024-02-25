@@ -35,6 +35,12 @@ Route::get('/run', function () {
 Route::get('/login', function () {
     return view('login');
 });
+Route::get('/select', function () {
+
+
+
+    return view('select');
+});
 
 // =>>> Student Controller <==//
 Route::get('/student', [StudentController::class, 'index']);
