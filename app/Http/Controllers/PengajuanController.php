@@ -110,8 +110,7 @@ class PengajuanController extends Controller
         $data = [];
 
         if ($request->filled('q')) {
-            $data = Student::select("nama", "id", "kelas")
-                ->where('nama', 'LIKE', '%' . $request->get('q') . '%')
+            $data = Student::where('nama', 'LIKE', '%' . $request->get('q') . '%')
                 ->get();
         }
         return response()->json($data);

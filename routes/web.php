@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     // return view('welcome');
+
     return view('home');
 });
 Route::get('/run', function () {
@@ -93,6 +94,10 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::post('/', [AuthController::class, 'logout'])->name('logout');
+<<<<<<< Updated upstream
+=======
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+>>>>>>> Stashed changes
 
 // Submit
 Route::post('/submit-form', [FormController::class, 'submit'])->name('submit.form');

@@ -17,7 +17,8 @@
         {{-- <h1>WELCOME TO SIRI - Pengajuan Section</h1> --}}
         <div class="container-xxl position-relative bg-white d-flex p-0">
             <!-- Spinner Start -->
-            <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div id="spinner"
+                class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
                 <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
@@ -43,20 +44,16 @@
 
 
                         @if ($message = Session::get('error'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert"></button>
+                                <strong>{{ $message }}</strong>
+                            </div>
                         @endif
                         <form method="POST" action="{{ route('pengajuan.store') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="nama">Nama</label>
-                                <select class="form-control" id="search" style="width:500px;" name="nama">
-                                    @foreach ($p1 as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="nama" aria-describedby="nama">
                             </div>
                             <div class="mb-3">
                                 <label for="InputJudul1" class="form-label">Judul 1</label>
@@ -79,7 +76,7 @@
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing">
                                     <option selected>Silahkan Dipilih</option>
                                     @foreach ($p1 as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
 
 
@@ -90,7 +87,7 @@
                                 <select class="form-select" aria-label="Pembimbing" name="pembimbing2">
                                     <option selected>Silahkan Dipilih</option>
                                     @foreach ($p2 as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -103,6 +100,7 @@
                 @include('footer')
             </div>
         </div>
+<<<<<<< Updated upstream
         @include('javascript')
         <script>
             $(document).ready(function() {
@@ -132,11 +130,26 @@
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+=======
+
+
+        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" /> --}}
+        @include('javascript')
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+>>>>>>> Stashed changes
         </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
         </script>
 
+<<<<<<< Updated upstream
 
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> --}}
@@ -148,6 +161,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
 
+=======
+>>>>>>> Stashed changes
     </body>
 
     </html>
