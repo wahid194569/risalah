@@ -17,7 +17,8 @@
     {{-- <h1>WELCOME TO SIRI - Pengajuan Section</h1> --}}
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -64,7 +65,8 @@
                                 <td>john@example.com</td>
                                 <td>jane@example.com</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
                                         Penerimaan
                                     </button>
                                 </td>
@@ -74,12 +76,14 @@
                     </table>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <div class="modal fade SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di kabupaten Banyuwangi berbasis WEB"
+                        id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Pengajuan Form</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <!-- Form fields -->
@@ -87,19 +91,47 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="nama" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter Nama">
+                                            <input type="text" class="form-control" id="nama" name="nama"
+                                                placeholder="Enter Nama">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="judul" class="form-label">Judul 1</label>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2">Example multiple select</label>
+                                                <select multiple class="form-control" id="exampleFormControlSelect2">
+                                                    <option>SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di
+                                                        kabupaten Banyuwangi berbasis WEB</option>
+                                                    <option>SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di
+                                                        kabupaten Banyuwangi berbasis WEB</option>
+                                                    <option>SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di
+                                                        kabupaten Banyuwangi berbasis WEB dengan mengguanakan
+                                                        metode
+                                                        clasificasi k-means dan google map api</option>
+                                                </select>
+                                            </div>
+                                            {{-- <input type="text" class="form-control" id="judul" name="judul"
+                                                value="SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di kabupaten Banyuwangi berbasis WEB"> --}}
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">SIstem Informasi Geografis Pemetaan Kerusakan Jalan Di kabupaten Banyuwangi berbasis WEB</textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="judul" class="form-label">Judul</label>
-                                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Enter Judul A">
+                                            <input type="text" class="form-control" id="judul" name="judul"
+                                                placeholder="Enter Judul A">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="judul" class="form-label">Judul</label>
+                                            <input type="text" class="form-control" id="judul" name="judul"
+                                                placeholder="Enter Judul A">
                                         </div>
                                         <div class="mb-3">
                                             <label for="pembimbinga" class="form-label">Pembimbing A</label>
-                                            <input type="text" class="form-control" id="pembimbinga" name="pembimbinga" placeholder="Enter Judul B">
+                                            <input type="text" class="form-control" id="pembimbinga"
+                                                name="pembimbinga" placeholder="Enter Judul B">
                                         </div>
                                         <div class="mb-3">
                                             <label for="pembimbingb" class="form-label">Pembimbing B</label>
-                                            <input type="text" class="form-control" id="pembimbingb" name="pembimbingb" placeholder="Enter Judul C">
+                                            <input type="text" class="form-control" id="pembimbingb"
+                                                name="pembimbingb" placeholder="Enter Judul C">
                                         </div>
                                         <div class="mb-3">
                                             <label for="keterangan" class="form-label">Keterangan</label>
@@ -110,12 +142,13 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- Model End--}}
+                    {{-- Model End --}}
 
 
 
