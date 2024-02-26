@@ -23,8 +23,14 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     // return view('welcome');
+    return view('login');
+});
+
+// Dashboard or Home
+Route::get('/home', function () {
     return view('home');
 });
+
 Route::get('/run', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:cache');
